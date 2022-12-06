@@ -19,4 +19,33 @@ function getComputerChoice() {
   } else return "something went wrong";
 }
 
-console.log(getComputerChoice());
+//Compares user and computer choice, determines who wins
+function playRound() {
+  let computerChoice = getComputerChoice();
+  let userChoice = getUserChoice();
+  console.log(
+    `This is computers choice ${computerChoice}`,
+    ` and this is user's choice ${userChoice}`
+  );
+
+  if (computerChoice === userChoice) {
+    return "Tie! No one wins this round";
+  } else if (computerChoice === "rock" && userChoice === "scissor") {
+    return "You Lose! Rock beats scissor";
+  } else if (computerChoice === "paper" && userChoice === "rock") {
+    return "You Lose! Paper beats rock";
+  } else if (computerChoice === "scissor" && userChoice === "paper") {
+    return "You Lose! Scissor beats paper";
+  } else if (computerChoice === "rock" && userChoice === "paper") {
+    return "You win! Paper beats rock";
+  } else if (computerChoice === "paper" && userChoice === "scissor") {
+    return "You win! Scissor beats paper";
+  } else if (computerChoice === "scissor" && userChoice === "rock") {
+    return "You win! Rock beats scissor";
+  }
+}
+
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+  console.log(playRound());
+}
