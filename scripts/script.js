@@ -23,29 +23,45 @@ function getComputerChoice() {
 function playRound() {
   let computerChoice = getComputerChoice();
   let userChoice = getUserChoice();
-  console.log(
-    `This is computers choice ${computerChoice}`,
-    ` and this is user's choice ${userChoice}`
-  );
-
+  //return value for 0 and 1 used for tallying score in game function
   if (computerChoice === userChoice) {
-    return "Tie! No one wins this round";
+    return console.log("Tie! No one wins this round");
   } else if (computerChoice === "rock" && userChoice === "scissor") {
-    return "You Lose! Rock beats scissor";
+    console.log("You Lose! Rock beats scissor");
+    return 0;
   } else if (computerChoice === "paper" && userChoice === "rock") {
-    return "You Lose! Paper beats rock";
+    console.log("You Lose! Paper beats rock");
+    return 0;
   } else if (computerChoice === "scissor" && userChoice === "paper") {
-    return "You Lose! Scissor beats paper";
+    console.log("You Lose! Scissor beats paper");
+    return 0;
   } else if (computerChoice === "rock" && userChoice === "paper") {
-    return "You win! Paper beats rock";
+    console.log("You win! Paper beats rock");
+    return 1;
   } else if (computerChoice === "paper" && userChoice === "scissor") {
-    return "You win! Scissor beats paper";
+    console.log("You win! Scissor beats paper");
+    return 1;
   } else if (computerChoice === "scissor" && userChoice === "rock") {
-    return "You win! Rock beats scissor";
+    console.log("You win! Rock beats scissor");
+    return 1;
   }
 }
 
-for (let i = 0; i < 5; i++) {
-  console.log(i);
-  console.log(playRound());
+function game() {
+  let round = 1;
+  let userScore = 0;
+  let computerScore = 0;
+
+  for (let i = 0; i < 5; i++) {
+    let results = playRound();
+    if (results === 0) {
+      computerScore++;
+    } else if (results === 1) {
+      userScore++;
+    }
+  }
+
+  console.log(`Final results: User - ${userScore} Computer - ${computerScore}`);
 }
+
+game();
