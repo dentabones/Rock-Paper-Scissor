@@ -1,10 +1,17 @@
 "use strict";
 const butt = document.querySelectorAll("button");
-//function get prompts user to choose between rock paper or scissor
 
-//logs the value of the button when clicked
+//returns value depending on which button is clicked
 function getUserChoice(e) {
   console.log(this.classList.value);
+
+  if (this.classList.value === "rock") {
+    return "rock";
+  } else if (this.classList.value === "paper") {
+    return "paper";
+  } else if (this.classList.value === "scissor") {
+    return "scissor";
+  }
 }
 
 butt.forEach((button) => button.addEventListener("click", getUserChoice));
