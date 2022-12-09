@@ -1,10 +1,13 @@
 "use strict";
-
+const butt = document.querySelectorAll("button");
 //function get prompts user to choose between rock paper or scissor
-function getUserChoice() {
-  let userChoice = prompt("Choose rock, paper, or scissor");
-  return userChoice.toLowerCase();
+
+//logs the value of the button when clicked
+function getUserChoice(e) {
+  console.log(this.classList.value);
 }
+
+butt.forEach((button) => button.addEventListener("click", getUserChoice));
 
 //gets computers choice between rock paper and scissor
 function getComputerChoice() {
@@ -63,5 +66,3 @@ function game() {
 
   console.log(`Final results: User - ${userScore} Computer - ${computerScore}`);
 }
-
-game();
