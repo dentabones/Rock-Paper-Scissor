@@ -1,10 +1,11 @@
 "use strict";
 const butt = document.querySelectorAll("button");
+const announcement = document.querySelector(".announcement");
+const playerScore = document.querySelector(".player-score");
+const computerScore = document.querySelector(".computer-score");
 
 //returns value depending on which button is clicked
 function getUserChoice(e) {
-  console.log(this.classList.value);
-
   if (this.classList.value === "rock") {
     return "rock";
   } else if (this.classList.value === "paper") {
@@ -59,16 +60,19 @@ function playRound() {
 
 function game() {
   let round = 1;
-  let userScore = 0;
-  let computerScore = 0;
+  let userScored = 0;
+  let computerScored = 0;
 
   for (let i = 0; i < 5; i++) {
     let results = playRound();
     if (results === 0) {
-      computerScore++;
+      computerScored++;
+      computerScore.textContent = computerScored;
     } else if (results === 1) {
-      userScore++;
+      userScored++;
+      playerScore.textContent = userScored;
     }
+    round++;
   }
 
   console.log(`Final results: User - ${userScore} Computer - ${computerScore}`);
