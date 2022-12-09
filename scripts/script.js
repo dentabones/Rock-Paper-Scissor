@@ -3,6 +3,7 @@ const butt = document.querySelectorAll("button");
 const announcement = document.querySelector(".announcement");
 const playerScore = document.querySelector(".player-score");
 const computerScore = document.querySelector(".computer-score");
+const currentRound = document.querySelector(".round");
 
 //returns value depending on which button is clicked
 function getUserChoice(e) {
@@ -73,6 +74,7 @@ function game() {
       playerScore.textContent = userScored;
     }
     round++;
+    currentRound.textContent = round;
   }
 
   console.log(`Final results: User - ${userScore} Computer - ${computerScore}`);
